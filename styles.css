@@ -1,179 +1,56 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmhduz8A.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
-
-body{
-  background:#000;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
+/* cyrillic */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwkxduz8A.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
-
-.container{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
-  background:#000;
+/* greek-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmxduz8A.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
 }
-
-/* VIDEO & PROTEKSI DRAG/SELEKSI ASET */
-.bg-video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:1;
-  background:#000;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+/* greek */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlBduz8A.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
 }
-
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.15)
-  );
-  z-index:2;
+/* vietnamese */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmBduz8A.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
-
-.live-badge{
-  position:absolute;
-  top:15px;
-  left:15px;
-  background:red;
-  color:white;
-  padding:6px 12px;
-  border-radius:8px;
-  font-weight:bold;
-  font-size:14px;
-  z-index:3;
-  animation:pulse 1s infinite;
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmRduz8A.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
-@keyframes pulse{
-  0%{opacity:1;}
-  50%{opacity:.6;}
-  100%{opacity:1;}
-}
-
-.viewers{
-  position:absolute;
-  top:15px;
-  left:90px;
-  background:rgba(255,255,255,0.85);
-  color:#000;
-  padding:6px 10px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:bold;
-  z-index:3;
-}
-
-/* TOMBOL SILANG DI POJOK KANAN ATAS */
-.close-btn{
-  position:absolute;
-  top:15px;
-  right:15px;
-  background:rgba(0, 0, 0, 0.6);
-  color:white;
-  text-decoration:none;
-  width:36px;
-  height:36px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:50%;
-  font-size:18px;
-  font-weight:bold;
-  z-index:4;
-  transition:.2s;
-}
-
-.close-btn:hover{
-  background:rgba(255, 255, 255, 0.2);
-}
-
-.play-btn{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.92);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  transition:.3s;
-  text-decoration:none;
-  z-index:3;
-}
-
-.play-btn:hover{
-  transform:translate(-50%,-50%) scale(1.08);
-}
-
-.triangle{
-  width:0;
-  height:0;
-  border-top:18px solid transparent;
-  border-bottom:18px solid transparent;
-  border-left:28px solid #000;
-  margin-left:6px;
-}
-
-/* AREA TEKS & TOMBOL AGAR LEBIH NAIK */
-.bottom{
-  position:absolute;
-  bottom:12%;
-  width:100%;
-  text-align:center;
-  color:white;
-  padding:0 20px;
-  z-index:3;
-}
-
-.bottom h1{
-  font-size:28px;
-  margin-bottom:6px;
-}
-
-.bottom p{
-  font-size:15px;
-  opacity:.9;
-  margin-bottom:15px;
-}
-
-/* WARNA TOMBOL BAWAAN (PINK/MERAH) */
-.cta{
-  display:inline-block;
-  background:#ff0050;
-  color:white;
-  text-decoration:none;
-  padding:14px 30px;
-  border-radius:50px;
-  font-weight:bold;
-  font-size:18px;
-  transition: all 0.2s ease;
-  outline: none;
-}
-
-/* MELEWATI (HOVER) & MENYENTUH DI HP LANGSUNG HIJAU */
-.cta:hover, .cta:active {
-  background: #28a745 !important;
-  transform: scale(1.05);
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
